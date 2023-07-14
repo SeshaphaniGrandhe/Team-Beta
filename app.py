@@ -136,10 +136,18 @@ def quiz():
 
     return render_template('quiz.html', questions=selected_questions, selected_answers=selected_answers)
 
-    
+    def get_interpretation(score):
+    # Define your logic to provide an interpretation based on the score
+    if score >= 120:
+        interpretation = "Highly gifted"
+    elif score >= 90:
+        interpretation = "Above average"
+    elif score >= 70:
+        interpretation = "Average"
+    else:
+        interpretation = "Below average"
+
     return interpretation
-
-
 
 
 @app.route('/result')
