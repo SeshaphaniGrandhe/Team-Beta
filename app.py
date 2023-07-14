@@ -136,6 +136,18 @@ def quiz():
 
     return render_template('quiz.html', questions=selected_questions, selected_answers=selected_answers)
 
+    def calculate_percentile_rank(score, scores):
+    # Sort the scores in descending order
+    sorted_scores = sorted(scores, reverse=True)
+
+    # Find the index of the current score in the sorted list
+    index = sorted_scores.index(score)
+
+    # Calculate the percentile rank as a percentage
+    percentile_rank = (index / len(sorted_scores)) * 100
+
+    return percentile_rank
+    
     def get_interpretation(score):
     # Define your logic to provide an interpretation based on the score
     if score >= 120:
